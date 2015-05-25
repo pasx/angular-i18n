@@ -12,16 +12,19 @@ To localize your application you only need to proceed as follows:
 - Reference the i18n module in your application module: app = angular.module('app', ['i18n']);
 - Create the i18n folder and add the translation files.
 
-The default language is initialized to en in i18n.js you can change it to fr to see the difference.
+The default language is initialized to en in i18n.js you can change it to fr to see the difference by editing this line:
+   i18nService.initialize($rootScope,'en');
+to
+   i18nService.initialize($rootScope,'fr');
 
 Evolution
 
-//cookies
+Use cookies to store the default language for the user.
 
-//add switch language function calling initialize on service with combo in UI.
+Add a language switch function calling initialize on the service with a combo in the UI.
 
 
-Directory structure:
+Directory structure (you will need to add the lib folder and its content):
 
 index.html
 -js

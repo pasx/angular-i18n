@@ -1,6 +1,5 @@
 
 app = angular.module('app', [
-  'ngResource',
    'i18n'
 ]);
 
