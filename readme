@@ -1,4 +1,4 @@
-This is a very simple module to localize strings in an Angular page.
+This is a simple module to localize strings in an Angular page.
 
 It is based on this code: http://blog.novanet.no/creating-multilingual-support-using-angularjs/
 
@@ -13,18 +13,28 @@ To localize your application you only need to proceed as follows:
 - Create the i18n folder and add the translation files.
 
 The default language is initialized to en in i18n.js you can change it to fr to see the difference by editing this line:
-   i18nService.initialize($rootScope,'en');
+   i18nService.initialize('en');
 to
-   i18nService.initialize($rootScope,'fr');
+   i18nService.initialize('fr');
 
 Evolution
 
-Use cookies to store the default language for the user.
+Provide a service using cookies to store the default language for the user.
 
 Add a language switch function calling initialize on the service with a combo in the UI.
 
+Release notes
 
-Directory structure (you will need to add the lib folder and its content):
+Version 2.0 has been entirely overhauled and includes these changes:
+- Breaking change: the variable containing the translation dictionary on the scope is now named i18n instead of loc
+- Simplified and corrected code in the service
+- Removed dependency on Bootstrap
+- Angular dependencies through http
+- Added a method to clear the translation data so they can be reloaded from disk by getTranslation
+- Added promises so that code in other module can access the dictionary asynchronously once loaded - see the alert in app.js
+
+
+Directory structure:
 
 index.html
 -js
@@ -33,11 +43,6 @@ index.html
 -i18n
   i18n_en.json
   i18n_fr.json
--lib
-  -angular
-    angular.min.js
-  -bootstrap
-    bootstrap.min.js
 -css
   styles.css
 
